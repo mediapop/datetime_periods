@@ -1,0 +1,2 @@
+python-dateutil==2.1
+datetime_truncate>=1.0.0
