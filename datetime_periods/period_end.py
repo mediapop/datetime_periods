@@ -52,3 +52,8 @@ def period_end(datetime, period_name='day'):
     '''
     if period_name in PERIODS:
         return datetime + relativedelta(**PERIODS[period_name])
+    else:
+        raise ValueError('{} is not a valid period_name. Valid: {}'.format(
+            period_name,
+            ', '.join(PERIODS.keys())
+        ))
