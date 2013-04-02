@@ -44,7 +44,10 @@ Usage:
     [datetime(2012, 1, 1), datetime(2012, 12, 31, 23, 59, 59)]
 
 
-There are also sugar functions available on the form:
+
+The `sugar` module has sugar functions for all variants available.
+
+Sugar functions for entire period:
 
 * `period_second`
 * `period_minute`
@@ -56,5 +59,28 @@ There are also sugar functions available on the form:
 * `period_half_year`
 * `period_year`
 
+Sugar functions for beginning of period:
+
+* `period_beginning_second`
+* `period_beginning_minute`
+* `period_beginning_hour`
+* `period_beginning_day`
+* `period_beginning_week`
+* `period_beginning_month`
+* `period_beginning_quarter`
+* `period_beginning_half_year`
+* `period_beginning_year`
+
+Sugar functions for end of period:
+
+* `period_end_second`
+* `period_end_minute`
+* `period_end_hour`
+* `period_end_day`
+* `period_end_week`
+* `period_end_month`
+* `period_end_quarter`
+* `period_end_half_year`
+* `period_end_year`
 
 .. _Read the Docs: http://datetime_periods.readthedocs.org/en/latest/
