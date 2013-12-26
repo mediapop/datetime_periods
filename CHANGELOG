@@ -1,0 +1,6 @@
+2013-12-28  Björn Andersson  <ba@sanitarium.se>
+
+	* datetime_periods/time_range.py (TimeRange): Add TimeRange class
+	to smartly handle ranges of time. Main example is opening hours a
+	location opens at 17:00 and closes at 03:00, it closes at another
+	date.

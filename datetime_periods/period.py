@@ -1,5 +1,5 @@
 from datetime_truncate import truncate as period_beginning
-from period_end import period_end
+from .period_end import period_end
 
 
 def period(datetime, period_name='day'):

@@ -6,11 +6,11 @@ datetime_periods
 This module aims to help you create time periods as easily as if by a
 snap of your finger.
 
+`period` usage:
+------
+
 Pass in a :py:mod:`datetime.datetime()` object and a period name and it'll
 return the beginning and end of that period.
-
-Usage:
-------
 
     >>> from datetime_periods import period
     >>> period(datetime(2012, 4, 2, second=12), 'minute')
@@ -31,7 +31,39 @@ Usage:
     [datetime(2012, 1, 1), datetime(2012, 12, 31, 23, 59, 59)]
 
 
-The `sugar` module has sugar functions for all variants available.
+`TimeRange` usage:
+------
+
+The :py:class:`TimeRange <datetime_periods.TimeRange>` class takes two
+times, `start` and `stop`, and creates `datetime` objects from them
+that is smart about when a date should roll over to the following day.
+
+This class can also act like a 2 length list where index 0=start,
+1=stop time. This to allow the class to be used for argument
+expansion and as an iterator.
+
+    >>> from datetime_periods import TimeRange
+    >>> tr = TimeRange('17:00', '23:00', '2013-12-25')
+    >>> tr.start
+    datetime(2013, 12, 25, 17)
+    >>> tr.stop
+    datetime(2013, 12, 25, 23)
+    >>> tr = TimeRange('17:00', '04:00', '2013-12-25')
+    >>> tr.start
+    datetime(2013, 12, 25, 17)
+    >>> tr.stop
+    datetime(2013, 12, 26, 4)
+    >>> tr[0] == tr.start
+    True
+    >>> tr[1] == tr.stop
+    True
+
+Sugar
+-----
+
+The :py:mod:`sugar <datetime_periods.sugar>` module has sugar
+functions for all :py:func:`period <datetime_periods.period>` variants
+available.
 
 Sugar functions for entire period:
 
@@ -69,9 +101,10 @@ Sugar functions for end of period:
 * `period_end_half_year`
 * `period_end_year`
 
-
 :mod:`datetime_periods`
 ------------------------------------------
+
+.. autoclass:: datetime_periods.TimeRange
 
 .. autofunction:: datetime_periods.period
 
