@@ -1,9 +1,9 @@
 # -*- encoding: utf-8 -*-
-from distutils.core import setup
+from setuptools import setup
 
 setup(
     name='datetime_periods',
-    version='1.0.0',
+    version='1.1.0',
     url='https://github.com/mediapop/datetime_periods',
     author='Björn Andersson / Media Pop',
     author_email='bjorn@mediapop.co',

@@ -2,10 +2,13 @@
 datetime_periods
 ================
 
+.. image:: https://travis-ci.org/mediapop/datetime_periods.png
+           :target: https://travis-ci.org/mediapop/datetime_periods
+
 This module aims to help you create time periods as easily as if by a
 snap of your finger.
 
-Pass in a :py:mod:`datetime.datetime()` object and a period name and it'll
+Pass in a `datetime.datetime()` object and a period name and it'll
 return the beginning and end of that period.
 
 Documentation available on `Read the Docs`_.
@@ -20,8 +23,11 @@ You can install from pypi!
     pip install datetime_periods
 
 
-Usage:
+`period` usage
 ------
+
+Pass in a `datetime.datetime()` object and a period name and it'll
+return the beginning and end of that period.
 
 .. code-block::
 
@@ -44,6 +50,37 @@ Usage:
     [datetime(2012, 1, 1), datetime(2012, 12, 31, 23, 59, 59)]
 
 
+`TimeRange` usage
+------
+
+The `TimeRange` class takes two times, `start` and `stop`, and creates
+`datetime` objects from them that is smart about when a date should
+roll over to the following day.
+
+This class can also act like a 2 length list where index 0=start,
+1=stop time. This to allow the class to be used for argument
+expansion and as an iterator.
+
+.. code-block::
+
+    >>> from datetime_periods import TimeRange
+    >>> tr = TimeRange('17:00', '23:00', '2013-12-25')
+    >>> tr.start
+    datetime(2013, 12, 25, 17)
+    >>> tr.stop
+    datetime(2013, 12, 25, 23)
+    >>> tr = TimeRange('17:00', '04:00', '2013-12-25')
+    >>> tr.start
+    datetime(2013, 12, 25, 17)
+    >>> tr.stop
+    datetime(2013, 12, 26, 4)
+    >>> tr[0] == tr.start
+    True
+    >>> tr[1] == tr.stop
+    True
+
+Sugar
+-----
 
 The `sugar` module has sugar functions for all variants available.
 

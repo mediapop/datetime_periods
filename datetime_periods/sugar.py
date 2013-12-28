@@ -1,6 +1,7 @@
 from datetime_truncate import truncate
-from period import period
-from period_end import period_end
+
+from .period import period
+from .period_end import period_end
 
 
 def period_second(datetime):
